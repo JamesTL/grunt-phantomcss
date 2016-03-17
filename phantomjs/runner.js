@@ -78,9 +78,10 @@ casper.start();
 args.test.forEach(function(testSuite) {
   phantom.casperTest = true;
   phantom.rootUrl = args.rootUrl;
-  casper.then(function() {
+  phantomcss.pathToTest = path.dirname(testSuite) + '/';
+ /* casper.then(function() {
     phantomcss.pathToTest = path.dirname(testSuite) + '/';
-  });
+  });*/
   require(testSuite);
   casper.then(function() {
     phantomcss.compareSession();
