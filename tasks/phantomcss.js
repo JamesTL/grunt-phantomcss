@@ -115,8 +115,8 @@ module.exports = function(grunt) {
         // Create the output directory
         grunt.file.mkdir(folderpath + '/' + options.results);
 
-        // Copy fixtures, diffs, and failure images to the results directory
-        var allScreenshots = grunt.file.expand(path.join(folderpath + '/' + options.screenshots, '**.png'));
+        // Copy failure images only  to the results directory
+        var allScreenshots = grunt.file.expand(path.join(options.screenshots, '**.fail.png'));
 
         allScreenshots.forEach(function(filepath) {
           grunt.file.copy(filepath, path.join(
