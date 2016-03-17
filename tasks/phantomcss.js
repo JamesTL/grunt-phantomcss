@@ -85,8 +85,11 @@ module.exports = function(grunt) {
     var deleteDiffScreenshots = function(folderpath) {
       // Find diff/fail files
       var diffScreenshots = grunt.file.expand([
-        path.join(folderpath + '/' + options.screenshots, '*diff.png'),
-        path.join(folderpath + '/' + options.screenshots, '*fail.png'),
+        //Remove folderpath as already contained in options.screenshots
+       /* path.join(folderpath + '/' + options.screenshots, '*diff.png'),
+        path.join(folderpath + '/' + options.screenshots, '*fail.png'),*/
+        path.join(options.screenshots, '*diff.png'),
+        path.join(options.screenshots, '*fail.png'),
       ]);
 
       // Delete all of 'em
